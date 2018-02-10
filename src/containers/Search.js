@@ -12,7 +12,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  searchItems: () => dispatch(actionCreators.searchItems())
+  filterSearchItems: input => dispatch(actionCreators.filterItems(input))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search)

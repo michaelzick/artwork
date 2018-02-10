@@ -1,8 +1,16 @@
 import * as actionTypes from './actionTypes';
 
-export const searchItems = () => {
-  return {
-    type: actionTypes.UPDATE_SEARCH
+export const fetchItems = () => {
+  return dispatch => {
+    dispatch(fetchStart())
+
+    fetch('../../../api/data.json').then(resp => {
+      return resp.json().then(resp => {
+        dispatch(fetchSuccess(resp))
+      })
+    }).catch(error => {
+      dispatch(fetchFailed())
+    })
   }
 }
 
@@ -25,16 +33,16 @@ export const fetchFailed = () => {
   }
 }
 
-export const fetchItems = () => {
+export const filterItems = input => {
   return dispatch => {
-    dispatch(fetchStart())
+    const searchVal = input.target.value.toLowerCase();
+    dispatch(searchItems(searchVal))
+  }
+}
 
-    fetch('../../../api/data.json').then(resp => {
-      return resp.json().then(resp => {
-        dispatch(fetchSuccess(resp))
-      })
-    }).catch(error => {
-      dispatch(fetchFailed())
-    })
+export const searchItems = searchVal => {
+  return {
+    type: actionTypes.UPDATE_SEARCH,
+    search: searchVal
   }
 }
