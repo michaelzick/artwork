@@ -36,7 +36,7 @@ export default class ArtworksList extends PureComponent {
 
   render() {
     const filteredItems = this.props.items.filter(item => {
-      return item.artwork_title.toLowerCase().indexOf(this.props.search) !== -1
+      return item.artwork_title.toLowerCase().includes(this.props.search)
     })
 
     const artList = this.props.isLoading ? <div className="loader"></div> :
