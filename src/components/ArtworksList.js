@@ -13,8 +13,19 @@ const Wrapper = styled.div`
   p {
     font-style: italic;
   }
+  .art-list {
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+  }
 `
-const List = styled.div``
+
+const List = styled.div`
+  div {
+    flex: 1 1 0;
+    margin: 10px;
+  }
+`
 
 export default class ArtworksList extends PureComponent {
   componentDidMount () {
@@ -25,7 +36,7 @@ export default class ArtworksList extends PureComponent {
     const artList = this.props.isLoading ? <div className="loader"></div> :
       <Fragment>
         <h1>Original Art for Sale</h1>
-        <List>
+        <List className="art-list">
           {this.props.items.map(item => (
             <ArtworkItem
               key={item.artId}
