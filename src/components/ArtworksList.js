@@ -1,7 +1,8 @@
-import React, { PureComponent } from "react"
+import React, { PureComponent, Fragment } from "react"
 import styled from "styled-components"
 
 import ArtworkItem from "./ArtworkItem"
+import '../ui/loader.css'
 
 const Wrapper = styled.div`
   h1 {
@@ -21,27 +22,29 @@ export default class ArtworksList extends PureComponent {
   }
 
   render() {
-    const artList = this.props.isLoading ? <img src="/img/sa-logo.svg" /> :
-      <List>
-        {this.props.items.map(item => (
-          <ArtworkItem
-            key={item.artId}
-            artwork_title={item.artwork_title}
-            artwork_url={item.artwork_url}
-            profile_url={item.profile_url}
-            image_url={item.image_url}
-            subject={item.subject}
-            artist={item.artist}
-            dimensions={item.dimensions}
-            category={item.category}
-            product={item.product}
-          />
-        ))}
-      </List>
+    const artList = this.props.isLoading ? <div className="loader"></div> :
+      <Fragment>
+        <h1>Original Art for Sale</h1>
+        <List>
+          {this.props.items.map(item => (
+            <ArtworkItem
+              key={item.artId}
+              artwork_title={item.artwork_title}
+              artwork_url={item.artwork_url}
+              profile_url={item.profile_url}
+              image_url={item.image_url}
+              subject={item.subject}
+              artist={item.artist}
+              dimensions={item.dimensions}
+              category={item.category}
+              product={item.product}
+            />
+          ))}
+        </List>
+      </Fragment>
 
     return (
       <Wrapper>
-        <h1>Original Art for Sale</h1>
         {artList}
       </Wrapper>
     )
