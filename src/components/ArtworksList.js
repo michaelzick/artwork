@@ -21,29 +21,28 @@ export default class ArtworksList extends PureComponent {
   }
 
   render() {
+    const artList = this.props.isLoading ? <img src="/img/sa-logo.svg" /> :
+      <List>
+        {this.props.items.map(item => (
+          <ArtworkItem
+            key={item.artId}
+            artwork_title={item.artwork_title}
+            artwork_url={item.artwork_url}
+            profile_url={item.profile_url}
+            image_url={item.image_url}
+            subject={item.subject}
+            artist={item.artist}
+            dimensions={item.dimensions}
+            category={item.category}
+            product={item.product}
+          />
+        ))}
+      </List>
+
     return (
       <Wrapper>
         <h1>Original Art for Sale</h1>
-
-        <List>
-          <ul>
-            {!this.props.isLoading && this.props.items.map(item => (
-              <li key={item.artId}>
-                <ArtworkItem
-                  artwork_title={item.artwork_title}
-                  artwork_url={item.artwork_url}
-                  profile_url={item.profile_url}
-                  image_url={item.image_url}
-                  subject={item.subject}
-                  artist={item.artist}
-                  dimensions={item.dimensions}
-                  category={item.category}
-                  product={item.product}
-                />
-              </li>
-            ))}
-          </ul>
-        </List>
+        {artList}
       </Wrapper>
     )
   }
