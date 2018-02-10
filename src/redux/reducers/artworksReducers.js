@@ -4,8 +4,7 @@ export const initialState = {
   items: [], // Fetch Data
   search: "", // Search Input
   favorites: {}, // ID's of Products
-  isLoading: false,
-  error: null,
+  isLoading: false
 }
 
 export default (state = initialState, action) => {
@@ -26,11 +25,6 @@ export default (state = initialState, action) => {
         items: action.items,
         error: false,
         isLoading: false
-      }
-    case actions.FETCH.FAILED:
-      return {
-        ...state,
-        error: true
       }
     default:
       return state

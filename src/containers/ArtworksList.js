@@ -7,8 +7,7 @@ const mapStateToProps = state => {
   return {
     items: state.artworks.items,
     search: state.artworks.search,
-    isLoading: state.artworks.isLoading,
-    error: state.artworks.error
+    isLoading: state.artworks.isLoading
   }
 }
 

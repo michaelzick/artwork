@@ -9,7 +9,7 @@ export const fetchItems = () => {
         dispatch(fetchSuccess(resp))
       })
     }).catch(error => {
-      dispatch(fetchFailed())
+      // Put error handling here
     })
   }
 }
@@ -24,12 +24,6 @@ export const fetchSuccess = items => {
   return {
     type: actionTypes.FETCH.SUCCESS,
     items: items
-  }
-}
-
-export const fetchFailed = () => {
-  return {
-    type: actionTypes.FETCH.FAILED
   }
 }
 
