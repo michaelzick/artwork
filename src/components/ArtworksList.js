@@ -35,11 +35,15 @@ export default class ArtworksList extends PureComponent {
   }
 
   render() {
+    const filteredItems = this.props.items.filter(item => {
+      return item.artwork_title.toLowerCase().indexOf(this.props.search) !== -1
+    })
+
     const artList = this.props.isLoading ? <div className="loader"></div> :
       <Fragment>
         <h1>Original Art for Sale</h1>
         <List className="art-list">
-          {this.props.items.map(item => (
+          {filteredItems.map(item => (
             <ArtworkItem
               key={item.artId}
               artwork_title={item.artwork_title}

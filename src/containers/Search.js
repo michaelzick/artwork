@@ -5,9 +5,7 @@ import * as actionCreators from '../redux/actions/artworksActions';
 
 const mapStateToProps = state => {
   return {
-    items: state.artworks.items,
-    isLoading: state.artworks.isLoading,
-    error: state.artworks.error
+    search: state.artworks.search
   }
 }
 
