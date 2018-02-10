@@ -1,5 +1,11 @@
 import * as actionTypes from './actionTypes';
 
+export const searchItems = () => {
+  return {
+    type: actionTypes.UPDATE_SEARCH
+  }
+}
+
 export const fetchStart = () => {
   return {
     type: actionTypes.FETCH.START

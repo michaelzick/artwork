@@ -10,6 +10,9 @@ export const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case actions.UPDATE_SEARCH:
+      console.log(state.items[0])
+
     case actions.FETCH.START:
       return {
         ...state,
