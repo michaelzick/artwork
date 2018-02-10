@@ -17,7 +17,6 @@ export const fetchItems = () => {
   return dispatch => {
     fetch('../../../api/data.json').then(resp => {
       return resp.json().then(resp => {
-        console.log(resp)
         dispatch(fetchSuccess(resp))
       })
     }).catch(error => {

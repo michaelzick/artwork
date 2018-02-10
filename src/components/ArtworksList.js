@@ -16,8 +16,9 @@ const Wrapper = styled.div`
 const List = styled.div``
 
 export default class ArtworksList extends PureComponent {
-  componentDidMount () {
+  componentWillMount () {
     this.props.getItemsOnLoad();
+    console.log(this.props)
   }
 
   render() {
@@ -27,11 +28,12 @@ export default class ArtworksList extends PureComponent {
 
         <List>
           <ul>
-            {/* {this.props.items.map(item => (
+            {!this.props.isLoading && this.props.items.map(item => (
               <li key={item.id}>
-                <ArtworkItem />
+                {/* <ArtworkItem /> */}
+                test
               </li>
-            ))} */}
+            ))}
           </ul>
         </List>
       </Wrapper>
