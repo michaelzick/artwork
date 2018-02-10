@@ -98,6 +98,7 @@ const Column = styled.div`
 
 export default props => {
   const {
+    id,
     artwork_title,
     artwork_url,
     profile_url,
@@ -107,12 +108,13 @@ export default props => {
     dimensions,
     category,
     product,
+    toggleFav
   } = props
   return (
     <Artwork>
       <ImageWrapper>
         <img src={props.image_url} />
-        <Favicon className="fa fa-heart" />
+        <Favicon onClick={props.toggleFav.bind(null, id)} className="fa fa-heart" />
       </ImageWrapper>
       <Info>
         <Title>

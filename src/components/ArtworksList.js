@@ -34,6 +34,14 @@ export default class ArtworksList extends PureComponent {
     this.props.getItemsOnLoad()
   }
 
+  toggleFavHandler = (id) => {
+    if (localStorage.getItem(id)) {
+      localStorage.removeItem(id)
+    } else {
+      localStorage.setItem(id, id)
+    }
+  }
+
   render() {
     const filteredItems = this.props.items.filter(item => {
       return item.artwork_title.toLowerCase().includes(this.props.search)
@@ -46,6 +54,7 @@ export default class ArtworksList extends PureComponent {
           {filteredItems.map(item => (
             <ArtworkItem
               key={item.artId}
+              id={item.artId}
               artwork_title={item.artwork_title}
               artwork_url={item.artwork_url}
               profile_url={item.profile_url}
@@ -55,6 +64,7 @@ export default class ArtworksList extends PureComponent {
               dimensions={item.dimensions}
               category={item.category}
               product={item.product}
+              toggleFav={this.toggleFavHandler}
             />
           ))}
         </List>
