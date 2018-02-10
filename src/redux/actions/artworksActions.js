@@ -1,6 +1,25 @@
-export const FETCH = {
-  START: 'FETCH_START',
-  SUCCESS: 'FETCH_SUCCESS'
+import * as actionTypes from './actionTypes';
+
+export const fetchSuccess = items => {
+  return {
+    type: actionTypes.FETCH.SUCCESS,
+    items: items
+  }
 }
 
-export const UPDATE_SEARCH = 'UPDATE_SEARCH'
+export const fetchFailed = () => {
+  return {
+    type: actionTypes.FETCH.FAILED
+  }
+}
+
+export const fetchItems = () => {
+  return dispatch => {
+    fetch('../../../api/data.json').then(resp => {
+      console.log(resp)
+      dispatch(fetchSuccess(resp))
+    }).catch(error => {
+      dispatch(fetchFailed())
+    })
+  }
+}

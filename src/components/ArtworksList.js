@@ -16,16 +16,23 @@ const Wrapper = styled.div`
 const List = styled.div``
 
 export default class ArtworksList extends PureComponent {
+  componentDidMount () {
+    this.props.getItemsOnLoad();
+  }
+
   render() {
     return (
       <Wrapper>
         <h1>Original Art for Sale</h1>
 
         <List>
-          <p>
-            Load Artworks via AJAX, Pull into Redux Store, and display each
-            artworks data in a 'ArtworkItem'
-          </p>
+          <ul>
+            {/* {this.props.items.map(item => (
+              <li key={item.id}>
+                <ArtworkItem />
+              </li>
+            ))} */}
+          </ul>
         </List>
       </Wrapper>
     )
