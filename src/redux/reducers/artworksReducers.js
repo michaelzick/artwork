@@ -1,4 +1,4 @@
-import * as actions from "../actions/artworks"
+import * as actions from "../actions/artworksActions"
 
 export const initialState = {
   items: [], // Fetch Data
@@ -10,9 +10,10 @@ export const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case actions.STORE_DATA:
+    case actions.FETCH.START:
       fetch('../../../api/data.json').then(response => {
         console.log(response)
+        state.items.push(response)
       });
       break;
     default:
