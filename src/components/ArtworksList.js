@@ -16,9 +16,8 @@ const Wrapper = styled.div`
 const List = styled.div``
 
 export default class ArtworksList extends PureComponent {
-  componentWillMount () {
-    this.props.getItemsOnLoad();
-    console.log(this.props)
+  componentDidMount () {
+    this.props.getItemsOnLoad()
   }
 
   render() {

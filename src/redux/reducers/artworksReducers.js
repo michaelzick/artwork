@@ -4,12 +4,17 @@ export const initialState = {
   items: [], // Fetch Data
   search: "", // Search Input
   favorites: {}, // ID's of Products
-  isLoading: true,
+  isLoading: false,
   error: null,
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case actions.FETCH.START:
+      return {
+        ...state,
+        isLoading: true
+      }
     case actions.FETCH.SUCCESS:
       return {
         ...state,

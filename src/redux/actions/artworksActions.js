@@ -1,5 +1,11 @@
 import * as actionTypes from './actionTypes';
 
+export const fetchStart = () => {
+  return {
+    type: actionTypes.FETCH.START
+  }
+}
+
 export const fetchSuccess = items => {
   return {
     type: actionTypes.FETCH.SUCCESS,
@@ -15,6 +21,8 @@ export const fetchFailed = () => {
 
 export const fetchItems = () => {
   return dispatch => {
+    dispatch(fetchStart())
+
     fetch('../../../api/data.json').then(resp => {
       return resp.json().then(resp => {
         dispatch(fetchSuccess(resp))
