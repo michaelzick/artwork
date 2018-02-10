@@ -17,6 +17,8 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
     flex-flow: row wrap;
+    max-width: 1300px;
+    margin: 0 auto;
   }
 `
 
