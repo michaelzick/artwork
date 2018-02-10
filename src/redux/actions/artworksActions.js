@@ -40,3 +40,10 @@ export const searchItems = searchVal => {
     search: searchVal
   }
 }
+
+export const toggleFav = (storageIdArray) => {
+  return {
+    type: actionTypes.TOGGLE_FAV,
+    storageAndId: storageIdArray
+  }
+}

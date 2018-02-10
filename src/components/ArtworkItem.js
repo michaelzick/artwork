@@ -108,13 +108,14 @@ export default props => {
     dimensions,
     category,
     product,
+    storage,
     toggleFav
   } = props
   return (
     <Artwork>
       <ImageWrapper>
         <img src={props.image_url} />
-        <Favicon onClick={props.toggleFav.bind(null, id)} className="fa fa-heart" />
+        <Favicon onClick={props.toggleFav.bind(this, [storage, id])} className="fa fa-heart" />
       </ImageWrapper>
       <Info>
         <Title>

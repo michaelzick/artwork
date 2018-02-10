@@ -5,3 +5,4 @@ export const FETCH = {
 }
 
 export const UPDATE_SEARCH = 'UPDATE_SEARCH'
+export const TOGGLE_FAV = 'TOGGLE_FAV'

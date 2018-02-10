@@ -26,6 +26,20 @@ export default (state = initialState, action) => {
         error: false,
         isLoading: false
       }
+    case actions.TOGGLE_FAV:
+      const storage = action.storageAndId[0],
+            itemId = action.storageAndId[1]
+
+      if (storage.getItem(itemId)) {
+        storage.removeItem(itemId)
+      } else {
+        storage.setItem(itemId, itemId)
+      }
+
+      return {
+        ...state,
+        favorites: storage
+      }
     default:
       return state
   }

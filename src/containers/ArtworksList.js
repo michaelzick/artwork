@@ -7,12 +7,14 @@ const mapStateToProps = state => {
   return {
     items: state.artworks.items,
     search: state.artworks.search,
-    isLoading: state.artworks.isLoading
+    isLoading: state.artworks.isLoading,
+    favorites: state.artworks.favorites
   }
 }
 
 const mapDispatchToProps = dispatch => ({
-  getItemsOnLoad: () => dispatch(actionCreators.fetchItems())
+  getItemsOnLoad: () => dispatch(actionCreators.fetchItems()),
+  toggleFavorite: id => dispatch(actionCreators.toggleFav(id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArtworksList)
