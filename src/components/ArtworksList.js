@@ -13,7 +13,6 @@ const Wrapper = styled.div`
     font-style: italic;
   }
 `
-
 const List = styled.div``
 
 export default class ArtworksList extends PureComponent {

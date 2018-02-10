@@ -10,7 +10,12 @@ export const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-  default:
-    return state
+    case actions.STORE_DATA:
+      fetch('../../../api/data.json').then(response => {
+        console.log(response)
+      });
+      break;
+    default:
+      return state
   }
 }
