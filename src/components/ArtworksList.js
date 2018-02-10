@@ -29,9 +29,18 @@ export default class ArtworksList extends PureComponent {
         <List>
           <ul>
             {!this.props.isLoading && this.props.items.map(item => (
-              <li key={item.id}>
-                {/* <ArtworkItem /> */}
-                test
+              <li key={item.artId}>
+                <ArtworkItem
+                  artwork_title={item.artwork_title}
+                  artwork_url={item.artwork_url}
+                  profile_url={item.profile_url}
+                  image_url={item.image_url}
+                  subject={item.subject}
+                  artist={item.artist}
+                  dimensions={item.dimensions}
+                  category={item.category}
+                  product={item.product}
+                />
               </li>
             ))}
           </ul>

@@ -101,6 +101,7 @@ export default props => {
     artwork_title,
     artwork_url,
     profile_url,
+    image_url,
     subject,
     artist,
     dimensions,
