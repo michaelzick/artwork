@@ -1,4 +1,5 @@
 import * as actions from "../actions/actionTypes"
+import storageToFavs from "../../utility/storageToFavs"
 
 export const initialState = {
   items: [], // Fetch Data
@@ -11,16 +12,10 @@ export default (state = initialState, action) => {
   switch (action.type) {
 
     case actions.FETCH.START:
-      const initialStorage = {}
-
-      for (let fav of Object.keys(action.storage)) {
-        initialStorage[fav] = fav
-      }
-
       return {
         ...state,
         isLoading: true,
-        favorites: initialStorage
+        favorites: storageToFavs(action.storage)
       }
 
     case actions.FETCH.SUCCESS:
@@ -39,10 +34,7 @@ export default (state = initialState, action) => {
 
     case actions.TOGGLE_FAV:
       const storage = action.storageAndId[0],
-            itemId = action.storageAndId[1],
-            newFavsStorage = {}
-
-      console.log(initialStorage)
+            itemId = action.storageAndId[1]
 
       // Add/remove favs from localStorage
       if (storage.getItem(itemId)) {
@@ -51,13 +43,9 @@ export default (state = initialState, action) => {
         storage.setItem(itemId, itemId)
       }
 
-      for (let fav of Object.keys(storage)) {
-        newFavsStorage[fav] = fav
-      }
-
       return {
         ...state,
-        favorites: newFavsStorage
+        favorites: storageToFavs(storage)
       }
 
     default:
