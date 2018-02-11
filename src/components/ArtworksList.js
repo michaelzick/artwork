@@ -61,6 +61,7 @@ export default class ArtworksList extends PureComponent {
               product={item.product}
               storage={localStorage}
               toggleFav={this.props.toggleFavorite}
+              favs={this.props.favorites}
             />
           ))}
         </List>
