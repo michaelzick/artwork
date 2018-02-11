@@ -14,7 +14,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isLoading: true,
-        favorites: storageToFavs(action.storage)
+        favorites: storageToFavs(action.storage) // Questionable strategy!
       }
 
     case actions.FETCH.SUCCESS:
@@ -34,6 +34,13 @@ export default (state = initialState, action) => {
     case actions.TOGGLE_FAV:
       const storage = action.storageAndId[0],
             itemId = action.storageAndId[1]
+
+      // Very questionable strategy!
+      // Reducers should be pure and here I am
+      // mutating the localStorage passed thru.
+      // Really I should be implementing this:
+      // https://egghead.io/lessons/javascript-redux-persisting-the-state-to-the-local-storage
+      // or this: https://github.com/rt2zz/redux-persist
 
       // Add/remove favs from localStorage
       if (storage.getItem(itemId)) {
