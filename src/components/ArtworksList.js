@@ -47,7 +47,9 @@ export default class ArtworksList extends PureComponent {
       <Fragment>
         <h1>Original Art for Sale</h1>
         <List className="art-list">
-          {filteredItems.map(item => (
+          {/* If list is empty, render a "No artworks" message */}
+          {/* Otherwise render the items */}
+          {filteredItems.length ? filteredItems.map(item => (
             <ArtworkItem
               key={item.artId}
               id={item.artId}
@@ -63,7 +65,7 @@ export default class ArtworksList extends PureComponent {
               storage={localStorage}
               toggleFav={this.props.toggleFavorite}
             />
-          ))}
+          )) : <i>No artworks available</i>}
         </List>
       </Fragment>
 
