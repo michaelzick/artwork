@@ -9,11 +9,13 @@ export const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+
     case actions.FETCH.START:
       return {
         ...state,
         isLoading: true
       }
+
     case actions.FETCH.SUCCESS:
       return {
         ...state,
@@ -21,11 +23,13 @@ export default (state = initialState, action) => {
         error: false,
         isLoading: false
       }
+
     case actions.UPDATE_SEARCH:
       return {
         ...state,
         search: action.search
       }
+
     case actions.TOGGLE_FAV:
       const storage = action.storageAndId[0],
             itemId = action.storageAndId[1]
@@ -47,6 +51,7 @@ export default (state = initialState, action) => {
         ...state,
         favorites: newFavsStorage
       }
+
     default:
       return state
   }
