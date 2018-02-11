@@ -30,15 +30,21 @@ export default (state = initialState, action) => {
       const storage = action.storageAndId[0],
             itemId = action.storageAndId[1]
 
+      let newFavsStorage = {}
+
       if (storage.getItem(itemId)) {
         storage.removeItem(itemId)
       } else {
         storage.setItem(itemId, itemId)
       }
 
+      for (let fav of Object.keys(storage)) {
+        newFavsStorage[fav] = true
+      }
+
       return {
         ...state,
-        favorites: storage
+        favorites: newFavsStorage
       }
     default:
       return state
