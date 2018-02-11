@@ -5,6 +5,9 @@ const Artwork = styled.div`
   background: #fff;
   border: ${props => props.theme.space[2]}px;
   padding: ${props => props.theme.space[3]}px;
+  flex: 1 1 0;
+  margin: 10px;
+  max-width: 100%;
 
   img {
     width: 100%;
@@ -74,17 +77,6 @@ const SubText = styled.div`
   margin-bottom: ${props => props.theme.space[3]}px;
 `
 
-const Wrapper = styled.div`
-  position: relative;
-
-  img {
-    opacity: 1;
-    transition: opacity linear 0.3s;
-    ${props => props.hover && "opacity: 0.8"};
-    backface-visibility: hidden;
-  }
-`
-
 const Row = styled.div`
   display: flex;
   justify-content: space-between;
@@ -101,9 +93,7 @@ export default props => {
     id,
     artwork_title,
     artwork_url,
-    profile_url,
     image_url,
-    subject,
     artist,
     dimensions,
     category,
@@ -115,9 +105,9 @@ export default props => {
   return (
     <Artwork>
       <ImageWrapper>
-        <img src={props.image_url} />
+        <img alt={artwork_title} src={image_url} />
         <Favicon
-          onClick={props.toggleFav.bind(this, [storage, id])}
+          onClick={toggleFav.bind(this, [storage, id])}
           liked={storage[id] ? 'liked' : ''}
           className="fa fa-heart"
         />

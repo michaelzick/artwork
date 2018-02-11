@@ -22,12 +22,7 @@ const Wrapper = styled.div`
   }
 `
 
-const List = styled.div`
-  div {
-    flex: 1 1 0;
-    margin: 10px;
-  }
-`
+const List = styled.div``
 
 export default class ArtworksList extends PureComponent {
   componentDidMount () {
@@ -55,9 +50,7 @@ export default class ArtworksList extends PureComponent {
               id={item.artId}
               artwork_title={item.artwork_title}
               artwork_url={item.artwork_url}
-              profile_url={item.profile_url}
               image_url={item.image_url}
-              subject={item.subject}
               artist={item.artist}
               dimensions={item.dimensions}
               category={item.category}
