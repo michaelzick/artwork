@@ -21,14 +21,12 @@ const Wrapper = styled.div`
     margin: 0 auto;
   }
 `
-
 const List = styled.div`
   div {
     flex: 1 1 0;
     margin: 10px;
   }
 `
-
 export default class ArtworksList extends PureComponent {
   componentDidMount () {
     this.props.getItemsOnLoad()

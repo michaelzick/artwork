@@ -39,7 +39,7 @@ export default (state = initialState, action) => {
       }
 
       for (let fav of Object.keys(storage)) {
-        newFavsStorage[fav] = true
+        newFavsStorage[fav] = fav
       }
 
       return {
