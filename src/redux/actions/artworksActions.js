@@ -2,14 +2,12 @@ import * as actionTypes from './actionTypes';
 
 export const fetchItems = storage => {
   return dispatch => {
-
     // Kick off the loading cycle,
     // passing in localStorage
     dispatch(fetchStart(storage))
 
     fetch('../../../api/data.json').then(resp => {
       return resp.json().then(resp => {
-
         // Dispatch success when api call is done
         dispatch(fetchSuccess(resp))
       })

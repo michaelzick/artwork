@@ -10,7 +10,6 @@ export const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-
     case actions.FETCH.START:
       return {
         ...state,
