@@ -13,7 +13,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  getItemsOnLoad: () => dispatch(actionCreators.fetchItems()),
+  getItemsOnLoad: storage => dispatch(actionCreators.fetchItems(storage)),
   toggleFavorite: id => dispatch(actionCreators.toggleFav(id))
 })
 

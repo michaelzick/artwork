@@ -11,9 +11,16 @@ export default (state = initialState, action) => {
   switch (action.type) {
 
     case actions.FETCH.START:
+      const initialStorage = {}
+
+      for (let fav of Object.keys(action.storage)) {
+        initialStorage[fav] = fav
+      }
+
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
+        favorites: initialStorage
       }
 
     case actions.FETCH.SUCCESS:
@@ -32,9 +39,10 @@ export default (state = initialState, action) => {
 
     case actions.TOGGLE_FAV:
       const storage = action.storageAndId[0],
-            itemId = action.storageAndId[1]
+            itemId = action.storageAndId[1],
+            newFavsStorage = {}
 
-      let newFavsStorage = {}
+      console.log(initialStorage)
 
       // Add/remove favs from localStorage
       if (storage.getItem(itemId)) {

@@ -32,7 +32,7 @@ const List = styled.div`
 export default class ArtworksList extends PureComponent {
   componentDidMount () {
     // Load the artwork items asynchronously
-    this.props.getItemsOnLoad()
+    this.props.getItemsOnLoad(localStorage)
   }
 
   render() {

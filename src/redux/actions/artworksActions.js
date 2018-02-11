@@ -1,10 +1,11 @@
 import * as actionTypes from './actionTypes';
 
-export const fetchItems = () => {
+export const fetchItems = storage => {
   return dispatch => {
 
-    // Kick off the loading cycle
-    dispatch(fetchStart())
+    // Kick off the loading cycle,
+    // passing in localStorage
+    dispatch(fetchStart(storage))
 
     fetch('../../../api/data.json').then(resp => {
       return resp.json().then(resp => {
@@ -18,9 +19,10 @@ export const fetchItems = () => {
   }
 }
 
-export const fetchStart = () => {
+export const fetchStart = storage => {
   return {
-    type: actionTypes.FETCH.START
+    type: actionTypes.FETCH.START,
+    storage: storage
   }
 }
 
