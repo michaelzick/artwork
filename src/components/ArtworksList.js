@@ -43,10 +43,12 @@ export default class ArtworksList extends PureComponent {
     const artList = this.props.isLoading ? <div className="loader"></div> :
       <Fragment>
         <h1>Original Art for Sale</h1>
+
+        {/* If list is empty, render a "No artworks" message */}
+        {filteredItems.length ? null : <i>No artworks available</i>}
+
         <List className="art-list">
-          {/* If list is empty, render a "No artworks" message */}
-          {/* Otherwise render the items */}
-          {filteredItems.length ? filteredItems.map(item => (
+          {filteredItems.map(item => (
             <ArtworkItem
               key={item.artId}
               id={item.artId}
@@ -60,7 +62,7 @@ export default class ArtworksList extends PureComponent {
               storage={localStorage}
               toggleFav={this.props.toggleFavorite}
             />
-          )) : <i>No artworks available</i>}
+          ))}
         </List>
       </Fragment>
 
