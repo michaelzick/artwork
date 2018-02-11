@@ -9,11 +9,6 @@ export const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case actions.UPDATE_SEARCH:
-      return {
-        ...state,
-        search: action.search
-      }
     case actions.FETCH.START:
       return {
         ...state,
@@ -25,6 +20,11 @@ export default (state = initialState, action) => {
         items: action.items,
         error: false,
         isLoading: false
+      }
+    case actions.UPDATE_SEARCH:
+      return {
+        ...state,
+        search: action.search
       }
     case actions.TOGGLE_FAV:
       const storage = action.storageAndId[0],

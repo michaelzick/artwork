@@ -31,14 +31,9 @@ export const fetchSuccess = items => {
   }
 }
 
-export const filterItems = input => {
-  return dispatch => {
-    const searchVal = input.target.value.toLowerCase();
-    dispatch(searchItems(searchVal))
-  }
-}
+export const searchItems = input => {
+  const searchVal = input.target.value.toLowerCase()
 
-export const searchItems = searchVal => {
   return {
     type: actionTypes.UPDATE_SEARCH,
     search: searchVal
