@@ -8,6 +8,7 @@ const Artwork = styled.div`
   flex: 1 1 0;
   margin: 10px;
   max-width: 100%;
+  box-sizing: border-box;
 
   img {
     width: 100%;
@@ -31,12 +32,13 @@ const Favicon = styled.span`
   justify-content: center;
   color: ${props =>
     props.liked ? props.theme.colors.red : props.theme.colors.secondary};
-
   transition: 0.3s ease-in color;
   cursor: pointer;
+
   &.fa {
     display: flex;
   }
+
   &:hover {
     color: ${props =>
     props.liked ? props.theme.colors.secondary : props.theme.colors.red};

@@ -10,9 +10,11 @@ const Wrapper = styled.div`
     font-family: ${props => props.theme.fontFamilySerif};
     font-weight: normal;
   }
+
   p {
     font-style: italic;
   }
+
   .art-list {
     display: flex;
     flex-direction: row;
