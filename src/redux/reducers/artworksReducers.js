@@ -32,6 +32,7 @@ export default (state = initialState, action) => {
 
       let newFavsStorage = {}
 
+      // Add/remove favs from localStorage
       if (storage.getItem(itemId)) {
         storage.removeItem(itemId)
       } else {

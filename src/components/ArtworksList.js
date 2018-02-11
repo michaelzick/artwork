@@ -21,22 +21,28 @@ const Wrapper = styled.div`
     margin: 0 auto;
   }
 `
+
 const List = styled.div`
   div {
     flex: 1 1 0;
     margin: 10px;
   }
 `
+
 export default class ArtworksList extends PureComponent {
   componentDidMount () {
+    // Load the artwork items asynchronously
     this.props.getItemsOnLoad()
   }
 
   render() {
+    // Based on search input, filter out the artwork items by title
     const filteredItems = this.props.items.filter(item => {
       return item.artwork_title.toLowerCase().includes(this.props.search)
     })
 
+    // If loading, render the loader/spinner
+    // Otherwise render the list of artworks
     const artList = this.props.isLoading ? <div className="loader"></div> :
       <Fragment>
         <h1>Original Art for Sale</h1>

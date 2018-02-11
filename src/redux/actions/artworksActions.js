@@ -2,10 +2,14 @@ import * as actionTypes from './actionTypes';
 
 export const fetchItems = () => {
   return dispatch => {
+
+    // Kick off the loading cycle
     dispatch(fetchStart())
 
     fetch('../../../api/data.json').then(resp => {
       return resp.json().then(resp => {
+
+        // Dispatch success when api call is done
         dispatch(fetchSuccess(resp))
       })
     }).catch(error => {
@@ -44,6 +48,6 @@ export const searchItems = searchVal => {
 export const toggleFav = (storageIdArray) => {
   return {
     type: actionTypes.TOGGLE_FAV,
-    storageAndId: storageIdArray
+    storageAndId: storageIdArray // an array of localStorage and clicked item id
   }
 }
