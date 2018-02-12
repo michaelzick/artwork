@@ -1,26 +1,24 @@
 import * as actionTypes from './actionTypes';
 
-export const fetchItems = storage => {
+export const fetchItems = () => {
   return dispatch => {
-    // Kick off the loading cycle,
-    // passing in localStorage
-    dispatch(fetchStart(storage))
+    // Kick off the loading cycle
+    dispatch(fetchStart())
 
     fetch('../../../api/data.json').then(resp => {
       return resp.json().then(resp => {
         // Dispatch success when api call is done
         dispatch(fetchSuccess(resp))
       })
-    }).catch(error => {
-      // Put error handling here
+    }).catch(err => {
+      console.log(err)
     })
   }
 }
 
-export const fetchStart = storage => {
+export const fetchStart = () => {
   return {
-    type: actionTypes.FETCH.START,
-    storage: storage
+    type: actionTypes.FETCH.START
   }
 }
 
@@ -40,10 +38,9 @@ export const searchItems = input => {
   }
 }
 
-export const toggleFav = (itemId, storage) => {
+export const toggleFav = (itemId) => {
   return {
     type: actionTypes.TOGGLE_FAV,
-    itemId: itemId,
-    storage: storage
+    itemId: itemId
   }
 }
