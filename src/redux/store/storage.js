@@ -1,3 +1,5 @@
+// The Dan Abramov way of state persistence
+
 export const loadState = () => {
   try {
     const serializedState = localStorage.getItem('state')
