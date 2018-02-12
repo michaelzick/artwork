@@ -4,11 +4,12 @@ export const initialState = {
   items: [], // Fetch Data
   search: "", // Search Input
   favorites: {}, // ID's of Products
-  isLoading: false
+  isLoading: false // Show/hide loader
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
+
     case actions.FETCH.START:
       return {
         ...state,
@@ -32,8 +33,6 @@ export default (state = initialState, action) => {
       const favs = {...state.favorites},
             itemId = action.itemId
 
-      // Remove the fav if it exists
-      // or add it if it doesn't
       if (favs[itemId]) {
         delete favs[itemId]
       } else {

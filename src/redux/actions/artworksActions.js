@@ -38,7 +38,7 @@ export const searchItems = input => {
   }
 }
 
-export const toggleFav = (itemId) => {
+export const toggleFav = itemId => {
   return {
     type: actionTypes.TOGGLE_FAV,
     itemId: itemId
