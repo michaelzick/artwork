@@ -40,9 +40,10 @@ export const searchItems = input => {
   }
 }
 
-export const toggleFav = (storageIdArray) => {
+export const toggleFav = (itemId, storage) => {
   return {
     type: actionTypes.TOGGLE_FAV,
-    storageAndId: storageIdArray // an array of localStorage and clicked item id
+    itemId: itemId,
+    storage: storage
   }
 }

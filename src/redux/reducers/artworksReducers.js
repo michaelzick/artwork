@@ -32,8 +32,8 @@ export default (state = initialState, action) => {
       }
 
     case actions.TOGGLE_FAV:
-      const storage = action.storageAndId[0],
-            itemId = action.storageAndId[1]
+      const storage = action.storage,
+            itemId = action.itemId
 
       // Very questionable strategy!
       // Reducers should be pure and here I am

@@ -29,7 +29,7 @@ const List = styled.div``
 export default class ArtworksList extends PureComponent {
   componentDidMount () {
     // Load the artwork items asynchronously
-    this.props.getItemsOnLoad(localStorage)
+    this.props.getItemsOnLoad()
   }
 
   render() {
@@ -59,7 +59,6 @@ export default class ArtworksList extends PureComponent {
               dimensions={item.dimensions}
               category={item.category}
               product={item.product}
-              storage={localStorage}
               toggleFav={this.props.toggleFavorite}
               favs={this.props.favorites}
             />

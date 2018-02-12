@@ -13,8 +13,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  getItemsOnLoad: storage => dispatch(actionCreators.fetchItems(storage)),
-  toggleFavorite: id => dispatch(actionCreators.toggleFav(id))
+  getItemsOnLoad: () => dispatch(actionCreators.fetchItems(localStorage)),
+  toggleFavorite: id => dispatch(actionCreators.toggleFav(id, localStorage))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArtworksList)
