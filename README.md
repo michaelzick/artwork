@@ -1,13 +1,11 @@
 # Saatchi Art Code Challenge
 
-In this example, we have an art browse app partially written.
+Ok, here it is!
 
-You can run the app with `$ yarn && yarn start` and access it via localhost:3000 in the browser.
+When doing the bonus task, I worked hard to employ best-practices like keeping the reducer pure.
+I didn't find the loading gif shown in the example so I pulled one off the net, created with CSS.
 
-You will find a instruction page with all the tasks.
+Of course run `$ yarn && yarn start` to get it going.
 
-We have also added Chrome Redux Dev Tools to the project.
-
-In the end hoping to a App Looking like this...
-
-![Fetch Request](https://dl.dropboxusercontent.com/s/oxusi9ccukt3bad/Finished.gif?dl=0)
+I hope it's good! :)
+Michael

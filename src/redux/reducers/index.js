@@ -5,5 +5,5 @@ import artworks from "./artworksReducers"
 
 export default combineReducers({
   artworks,
-  routing: routerReducer,
+  routing: routerReducer
 })
